@@ -30,7 +30,6 @@ public class Stacker extends javax.swing.JFrame {
             }
             if (counter == 100) {
                 bbutton.setText("Done!");
-                //bbutton.setForeground(Color.green);
             }
         }
 
@@ -51,7 +50,7 @@ public class Stacker extends javax.swing.JFrame {
     }
 
     void convert(String path) {
-        //File f=new File("C:\\Users\\Shubham Singh\\Desktop\\movee");
+
         File f = new File(path);
         File s[] = f.listFiles();
         String str[] = f.list();
@@ -64,12 +63,11 @@ public class Stacker extends javax.swing.JFrame {
                 if (s[i].isFile()) {
                     if (str[i].substring(str[i].lastIndexOf('.') + 1).equals(fil)) {
                         s[i].renameTo(new File(dir.getPath(), str[i]));
-                        // System.out.println(s[i].getName());
                     }
                 }
             } else {
                 convert(s[i].getAbsolutePath());
-                //System.out.println(s[i].getAbsolutePath());
+
             }
         }
     }
@@ -91,25 +89,21 @@ public class Stacker extends javax.swing.JFrame {
         p1 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        //setBackground(new java.awt.Color(255, 51, 51));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-//        jLabel1.setFont(new java.awt.Font("Snap ITC", 0, 24)); // NOI18N
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei", 0, 24)); // NOI18N
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("File Classifier");
         jLabel1.setHorizontalAlignment(SwingConstants.CENTER);
-        //jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 51), 1, true));
         jLabel1.setOpaque(true);
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Enter path to folder below");
         jLabel2.setHorizontalAlignment(SwingConstants.LEFT);
-        //jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 1, true));
 
         textarea.setBackground(new java.awt.Color(36, 36, 36));
         textarea.setFont(new java.awt.Font("Microsoft JhengHei", 1, 24)); // NOI18N
@@ -225,9 +219,7 @@ public class Stacker extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Stacker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Stacker().setVisible(true);
