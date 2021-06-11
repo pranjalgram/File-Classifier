@@ -16,14 +16,13 @@ public class Stacker extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar p1;
-    Timer timer = new Timer((rand.nextInt(50) % 5 + 1), new ActionListener() {
 
-        private int counter;
+    Timer timer = new Timer((rand.nextInt(50) % 5 + 1), new ActionListener() {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
 
-            counter = p1.getValue() + rand.nextInt(50) % 5 + 1;
+            int counter = p1.getValue() + rand.nextInt(50) % 5 + 1;
 
             if (counter <= 100) {
                 p1.setValue(counter);
@@ -61,13 +60,7 @@ public class Stacker extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Stacker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Stacker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Stacker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Stacker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
@@ -95,13 +88,13 @@ public class Stacker extends javax.swing.JFrame {
                 File dir = new File(path + "\\" + fil);
                 boolean t = dir.mkdir();
                 if (s[i].isFile()) {
+                    assert str != null;
                     if (str[i].substring(str[i].lastIndexOf('.') + 1).equals(fil)) {
                         s[i].renameTo(new File(dir.getPath(), str[i]));
                     }
                 }
             } else {
                 convert(s[i].getAbsolutePath());
-
             }
         }
     }
