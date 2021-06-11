@@ -7,14 +7,11 @@ import java.io.File;
 import java.util.Random;
 
 public class Stacker extends javax.swing.JFrame {
-    int c;
+
     Random rand = new Random();
     String ss;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bbutton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar p1;
 
     Timer timer = new Timer((rand.nextInt(50) % 5 + 1), new ActionListener() {
@@ -64,11 +61,7 @@ public class Stacker extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Stacker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Stacker().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new Stacker().setVisible(true));
     }
 
     String extenso(File F) {
@@ -108,9 +101,9 @@ public class Stacker extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        JPanel jPanel1 = new JPanel();
+        JLabel jLabel1 = new JLabel();
+        JLabel jLabel2 = new JLabel();
         textarea = new javax.swing.JTextField();
         bbutton = new javax.swing.JButton();
         p1 = new javax.swing.JProgressBar();
@@ -135,11 +128,7 @@ public class Stacker extends javax.swing.JFrame {
         textarea.setBackground(new java.awt.Color(36, 36, 36));
         textarea.setFont(new java.awt.Font("Microsoft JhengHei", 1, 24)); // NOI18N
         textarea.setForeground(new java.awt.Color(255, 255, 255));
-        textarea.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textareaActionPerformed(evt);
-            }
-        });
+        textarea.addActionListener(evt -> textareaActionPerformed(evt));
 
 
         bbutton.setBackground(new java.awt.Color(0, 0, 0));
@@ -147,11 +136,7 @@ public class Stacker extends javax.swing.JFrame {
         bbutton.setForeground(new java.awt.Color(255, 255, 255));
         bbutton.setText("Go!");
         bbutton.setHorizontalAlignment(SwingConstants.CENTER);
-        bbutton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bbuttonActionPerformed(evt);
-            }
-        });
+        bbutton.addActionListener(evt -> bbuttonActionPerformed(evt));
 
         p1.setBackground(new java.awt.Color(0, 0, 0));
         p1.setForeground(new java.awt.Color(255, 51, 51));
