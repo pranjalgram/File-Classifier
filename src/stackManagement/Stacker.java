@@ -1,21 +1,21 @@
 package stackManagement;
 
-import java.awt.*;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javafx.scene.control.ProgressBar;
-
-import javax.swing.*;
 
 public class Stacker extends javax.swing.JFrame {
     int c;
     Random rand = new Random();
-
+    String ss;
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bbutton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JProgressBar p1;
     Timer timer = new Timer((rand.nextInt(50) % 5 + 1), new ActionListener() {
 
         private int counter;
@@ -35,6 +35,7 @@ public class Stacker extends javax.swing.JFrame {
 
 
     });
+    private javax.swing.JTextField textarea;
 
     /**
      * Creates new form Stacker
@@ -42,6 +43,39 @@ public class Stacker extends javax.swing.JFrame {
     public Stacker() {
         initComponents();
 
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Stacker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Stacker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Stacker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Stacker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Stacker().setVisible(true);
+            }
+        });
     }
 
     String extenso(File F) {
@@ -52,8 +86,8 @@ public class Stacker extends javax.swing.JFrame {
     void convert(String path) {
 
         File f = new File(path);
-        File s[] = f.listFiles();
-        String str[] = f.list();
+        File[] s = f.listFiles();
+        String[] str = f.list();
 
         for (int i = 0; i < s.length; i++) {
             if (s[i].isFile()) {
@@ -113,6 +147,7 @@ public class Stacker extends javax.swing.JFrame {
                 textareaActionPerformed(evt);
             }
         });
+
 
         bbutton.setBackground(new java.awt.Color(0, 0, 0));
         bbutton.setFont(new java.awt.Font("Microsoft JhengHei", 0, 24)); // NOI18N
@@ -181,8 +216,6 @@ public class Stacker extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    String ss;
-
     private void bbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bbuttonActionPerformed
         ss = textarea.getText();
         convert(ss);
@@ -193,46 +226,5 @@ public class Stacker extends javax.swing.JFrame {
     private void textareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textareaActionPerformed
 
     }//GEN-LAST:event_textareaActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Stacker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Stacker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Stacker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Stacker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Stacker().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bbutton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JProgressBar p1;
-    private javax.swing.JTextField textarea;
     // End of variables declaration//GEN-END:variables
 }
